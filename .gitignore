@@ -1,0 +1,4 @@
+.idea
+.env
+weather_cache.db
+*.pyc

@@ -1,27 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Centreville Rainfall Predictor</title>
+    <title>Rainfall Predictor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-    <h1>Centreville Rainfall Predictor</h1>
+    <h1>Rainfall Predictor</h1>
+
+    <form id="zip-form" class="zip-form">
+        <label for="zip-input">US ZIP code</label>
+        <input id="zip-input" name="zip" type="text" inputmode="numeric"
+               maxlength="5" pattern="[0-9]{5}" placeholder="90210" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    <p id="status" class="status"></p>
+    <div class="gags">
+        <div id="cheese-egg" class="cheese-egg">
+            <button type="button" id="cheese-button" class="cheese-button" aria-label="Cheese">
+                <!-- Rodent's Revenge-ish isometric wedge -->
+                <svg id="cheese-wedge" class="cheese-wedge" viewBox="0 0 64 48" width="64" height="48" role="img">
+                    <polygon points="6,28 32,8 58,28 32,44" fill="#e6b422" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>
+                    <polygon points="6,28 32,44 32,36 6,22" fill="#c48a12" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>
+                    <polygon points="32,44 58,28 58,20 32,36" fill="#d4a017" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>
+                    <polygon points="6,22 32,4 58,20 32,36" fill="#f2d04a" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>
+                    <ellipse cx="26" cy="18" rx="4" ry="3" fill="#c48a12" stroke="#1a1a1a" stroke-width="1"/>
+                    <ellipse cx="40" cy="22" rx="3.2" ry="2.4" fill="#c48a12" stroke="#1a1a1a" stroke-width="1"/>
+                    <ellipse cx="34" cy="12" rx="2.4" ry="1.8" fill="#c48a12" stroke="#1a1a1a" stroke-width="1"/>
+                </svg>
+            </button>
+            <!--  Top Gear S16E03, Albania. Hammond in the Mercedes S65 AMG:
+                  "...it's monitoring 70 different parameters about me.
+                  That must include whether or not I like different types of cheese,
+                  or if I'm thinking about hats. I was on life support in an
+                  intensive care unit and they weren't monitoring 70 things about me."
+                  https://youtu.be/OyH-351Z_-0?si=XFfX1qLoWh0ZoFLL&t=214
+            -->
+            <p id="cheese-verdict" class="cheese-verdict is-hidden"></p>
+        </div>
+        <div id="hat-egg" class="hat-egg">
+            <button type="button" id="hat-button" class="hat-button" aria-label="Hat">
+                <svg class="hat-svg" viewBox="0 0 64 48" width="64" height="48" role="img">
+                    <!-- brim -->
+                    <ellipse cx="32" cy="34" rx="26" ry="7" fill="#2c2c2c" stroke="#1a1a1a" stroke-width="2"/>
+                    <!-- crown -->
+                    <rect x="18" y="10" width="28" height="22" rx="3" fill="#3a3a3a" stroke="#1a1a1a" stroke-width="2"/>
+                    <!-- crown top -->
+                    <ellipse cx="32" cy="12" rx="14" ry="5" fill="#4a4a4a" stroke="#1a1a1a" stroke-width="2"/>
+                    <!-- band -->
+                    <rect x="18" y="24" width="28" height="5" fill="#8b1e1e" stroke="#1a1a1a" stroke-width="1.5"/>
+                </svg>
+            </button>
+            <p id="hat-verdict" class="hat-verdict is-hidden"></p>
+        </div>
+    </div>
+
     <table>
         <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp Max (°C)</th>
-                <th>Temp Min (°C)</th>
-                <th>Predicted Rain (mm)</th>
-            </tr>
+        <tr>
+            <th>Date</th>
+            <th>Temp Max (°C)</th>
+            <th>Temp Min (°C)</th>
+            <th>Forecast Rain (mm)</th>
+            <th>Predicted Rain (mm)</th>
+        </tr>
         </thead>
         <tbody id="forecast-table-body">
-            <!-- JS will insert rows here -->
+        <!-- JS will insert rows here -->
         </tbody>
     </table>
 </div>
 <script src="scripts/script.js"></script>
-
 </body>
 </html>
